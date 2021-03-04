@@ -1,307 +1,525 @@
 <!DOCTYPE html>
 <!-- saved from url=(0040)https://cdpn.io/rinaa27/fullpage/YzPzgYO -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
 
-  
-  
-<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
-<meta name="apple-mobile-web-app-title" content="CodePen">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="apple-touch-icon" type="image/png"
+    href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+  <meta name="apple-mobile-web-app-title" content="CodePen">
 
-<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
 
-<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+  <link rel="mask-icon" type=""
+    href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+    color="#111">
 
 
   <title>CodePen - Stepper</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./normalize.min.css">
 
   <link rel="stylesheet" href="./bootstrap.min.css">
-  
-<style>
-@charset "UTF-8";
-.stepper .nav-tabs {
-  position: relative;
-}
-.stepper .nav-tabs > li {
-  width: 25%;
-  position: relative;
-}
-.stepper .nav-tabs > li:after {
-  content: '';
-  position: absolute;
-  background: #f1f1f1;
-  display: block;
-  width: 100%;
-  height: 5px;
-  top: 30px;
-  left: 50%;
-  z-index: 1;
-}
-.stepper .nav-tabs > li.completed::after {
-  background: #34bc9b;
-}
-.stepper .nav-tabs > li:last-child::after {
-  background: transparent;
-}
-.stepper .nav-tabs > li.active:last-child .round-tab {
-  background: #34bc9b;
-}
-.stepper .nav-tabs > li.active:last-child .round-tab::after {
-  content: '✔';
-  color: #fff;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  top: 0;
-  display: block;
-}
-.stepper .nav-tabs [data-toggle='tab'] {
-  width: 25px;
-  height: 25px;
-  margin: 20px auto;
-  border-radius: 100%;
-  border: none;
-  padding: 0;
-  color: #f1f1f1;
-}
-.stepper .nav-tabs [data-toggle='tab']:hover {
-  background: transparent;
-  border: none;
-}
-.stepper .nav-tabs > .active > [data-toggle='tab'], .stepper .nav-tabs > .active > [data-toggle='tab']:hover, .stepper .nav-tabs > .active > [data-toggle='tab']:focus {
-  color: #34bc9b;
-  cursor: default;
-  border: none;
-}
-.stepper .tab-pane {
-  position: relative;
-  padding-top: 50px;
-}
-.stepper .round-tab {
-  width: 25px;
-  height: 25px;
-  line-height: 22px;
-  display: inline-block;
-  border-radius: 25px;
-  background: #fff;
-  border: 2px solid #34bc9b;
-  color: #34bc9b;
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  text-align: center;
-  font-size: 14px;
-}
-.stepper .completed .round-tab {
-  background: #34bc9b;
-}
-.stepper .completed .round-tab::after {
-  content: '✔';
-  color: #fff;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  top: 0;
-  display: block;
-}
-.stepper .active .round-tab {
-  background: #fff;
-  border: 2px solid #34bc9b;
-}
-.stepper .active .round-tab:hover {
-  background: #fff;
-  border: 2px solid #34bc9b;
-}
-.stepper .active .round-tab::after {
-  display: none;
-}
-.stepper .disabled .round-tab {
-  background: #fff;
-  color: #f1f1f1;
-  border-color: #f1f1f1;
-}
-.stepper .disabled .round-tab:hover {
-  color: #4dd3b6;
-  border: 2px solid #a6dfd3;
-}
-.stepper .disabled .round-tab::after {
-  display: none;
-}
-</style>
+  <link rel="stylesheet" href="./style.css">
+
+  <script type="text/javascript" src="./colombia.js"></script>
+
 
   <script>
-  window.console = window.console || function(t) {};
-</script>
+    let local_data = colombia;
+    console.log('local_data', local_data) 
+  </script>
 
-  
-  
   <script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
+    window.console = window.console || function (t) { };
+  </script>
+
+
+
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
+
 
 
 </head>
 
 <body translate="no">
   <div class="container">
-  <div class="panel panel-default">
-    <div class="panel-body">
+    <div class="panel panel-default">
+      <div class="panel-body">
 
-      <div class="stepper">
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active">
-            <a class="persistant-disabled" href="https://cdpn.io/rinaa27/fullpage/YzPzgYO#stepper-step-1" data-toggle="tab" aria-controls="stepper-step-1" role="tab" title="" data-original-title="Step 1">
-              <span class="round-tab">1</span>
-            </a>
-          </li>
-          <li role="presentation" class="disabled">
-            <a class="persistant-disabled" href="https://cdpn.io/rinaa27/fullpage/YzPzgYO#stepper-step-2" data-toggle="tab" aria-controls="stepper-step-2" role="tab" title="" data-original-title="Step 2">
-              <span class="round-tab">2</span>
-            </a>
-          </li>
-          <li role="presentation" class="disabled">
-            <a class="persistant-disabled" href="https://cdpn.io/rinaa27/fullpage/YzPzgYO#stepper-step-3" data-toggle="tab" aria-controls="stepper-step-3" role="tab" title="" data-original-title="Step 3">
-              <span class="round-tab">3</span>
-            </a>
-          </li>
-          <li role="presentation" class="disabled">
-            <a class="persistant-disabled" href="https://cdpn.io/rinaa27/fullpage/YzPzgYO#stepper-step-4" data-toggle="tab" aria-controls="stepper-step-4" role="tab" title="" data-original-title="Complete">
-              <span class="round-tab">4</span>
-            </a>
-          </li>
-        </ul>
-        <form role="form">
-          <div class="tab-content">
-            <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-1">
-              <h3 class="" "h2"="">1. Select Payment Type</h3>
-              <p>This is step 1</p>
-              <ul class="list-inline pull-right">
-                <li>
-                  <a class="btn btn-primary next-step">Next</a>
-                </li>
-              </ul>
+        <div class="stepper">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+              <a class="persistant-disabled" href="https://cdpn.io/rinaa27/fullpage/YzPzgYO#stepper-step-1"
+                data-toggle="tab" aria-controls="stepper-step-1" role="tab" title="" data-original-title="Step 1">
+                <span class="round-tab">1</span>
+              </a>
+            </li>
+            <li role="presentation" class="disabled">
+              <a class="persistant-disabled" href="https://cdpn.io/rinaa27/fullpage/YzPzgYO#stepper-step-2"
+                data-toggle="tab" aria-controls="stepper-step-2" role="tab" title="" data-original-title="Step 2">
+                <span class="round-tab">2</span>
+              </a>
+            </li>
+            <li role="presentation" class="disabled">
+              <a class="persistant-disabled" href="https://cdpn.io/rinaa27/fullpage/YzPzgYO#stepper-step-3"
+                data-toggle="tab" aria-controls="stepper-step-3" role="tab" title="" data-original-title="Step 3">
+                <span class="round-tab">3</span>
+              </a>
+            </li>
+            <li role="presentation" class="disabled">
+              <a class="persistant-disabled" href="https://cdpn.io/rinaa27/fullpage/YzPzgYO#stepper-step-4"
+                data-toggle="tab" aria-controls="stepper-step-4" role="tab" title="" data-original-title="Complete">
+                <span class="round-tab">4</span>
+              </a>
+            </li>
+          </ul>
+          <form role="form">
+            <div class="tab-content">
+              <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-1">
+                <h3 class="" "h2"="">1. Select Payment Type</h3>
+                <p>This is step 1</p>
+
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div align="center">Todos los datos son requeridos</div><br />
+                      <div style="position: relative; overflow: hidden;" id="container_COLUMN2">
+                        <div style="width: auto; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">
+                            Nombre<span class="required"></span></div>
+                        </div>
+                        <input type="text" name="Nombre" id="control_COLUMN2" label="Nombre"
+                          class="textInput defaultText" style="height: auto; width: 100%;" required>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN3">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">
+                            Apellido<span class="required"></span></div>
+                        </div>
+                        <input type="text" name="Apellido" id="control_COLUMN3" label="Apellido"
+                          class="textInput defaultText" style="height: auto; width: 100%;" required>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_EMAIL">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">E-mail
+                            (no uses espacios)<span class="required"></span></div>
+                        </div>
+                        <input type="text" name="Email" id="control_EMAIL" label="Email" class="textInput defaultText"
+                          style="height: auto; width: 100%;" required>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN4">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">
+                            Celular<span class="required"></span></div>
+                        </div>
+                        <input type="text" name="Celular" id="control_COLUMN4" label="Celular"
+                          class="textInput defaultText" style="height: auto; width: 100%;" required>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <ul class="list-inline pull-right">
+                  <li>
+                    <a class="btn btn-primary next-step">Next</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-pane fade" role="tabpanel" id="stepper-step-2">
+                <h3 class="" "h2"="">2. Enter Payment Information</h3>
+                <p>This is step 2</p>
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN5">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">
+                            Género<span class="required"></span></div>
+                        </div>
+                        <select id="control_COLUMN11" label="Genero" name="Genero" class="selectInput defaultText"
+                          style="height: 52px; width: 100%; border: 1px solid #818a91; font-size: 1.4rem; font-weight: 400; padding: 1.5rem 1.8rem; color: #818a91;"
+                          required>
+                          <option selected="selected" value="">Selecciona uno</option>
+                          <option value="Masculino">Masculino</option>
+                          <option value="Femenino">Femenino</option>
+                          <option value="Otro">Otro</option>
+                        </select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN4">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">Fecha
+                            de nacimiento<span class="required"></span></div>
+                        </div>
+                        <input id="control_COLUMN12" label="Fecha de Nacimiento" name="Fecha de Nacimiento" type="text"
+                          value="mm/dd/yyyy" style="height: auto; width: 100%;" required>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN5">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">
+                            Cédula<span class="required"></span></div>
+                        </div>
+                        <input type="text" name="Cedula" id="control_COLUMN5" label="Cédula"
+                          class="textInput defaultText" style="height: auto; width: 100%;" required>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <ul class="list-inline pull-right">
+                  <li>
+                    <a class="btn btn-default prev-step">Back</a>
+                  </li>
+                  <li>
+                    <a class="btn btn-primary next-step">Next</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
+                <h3 class="hs">3. Review and Submit Payment</h3>
+                <p>This is step 3</p>
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN15">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">
+                            Departamento</div>
+                        </div>
+                        <select name="Departamento" id="departamentoId" label="Departamento"
+                          class="selectInput defaultText"
+                          style="height: 52px; width: 100%; border: 1px solid #818a91; font-size: 1.4rem; font-weight: 400; padding: 1.5rem 1.8rem; color: #818a91;"
+                          required>
+                          <option value="" SELECTED>Selecciona uno</option>
+                          <script>
+                            Object.keys(local_data).forEach((d) => {
+                              /* console.log('d: ', local_data[d]); */
+                              let item = local_data[d]
+                              document.write(`<option value="${item.departamento}">${item.departamento}</option>`);
+
+                            })
+                          </script>
+                        </select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN16">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">
+                            Municipio</div>
+                        </div>
+                        <select name="Municipio" id="municipioId" label="Municipio" class="selectInput defaultText"
+                          style="height: 52px; width: 100%; border: 1px solid #818a91; font-size: 1.4rem; font-weight: 400; padding: 1.5rem 1.8rem; color: #818a91;"
+                          required>
+                          <option value="" SELECTED>Selecciona uno</option>
+                        </select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN6">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">Te
+                            gustaría recibir información de nuestras actividades</div>
+                        </div>
+                        <div style="margin: 0px 0px 0px 3px; width: 50%;">
+                          <table cellspacing="0" cellpadding="0" border="0">
+                            <tr style="height: 20px">
+                              <td><input type="radio" style="margin: 0px 4px 0px 0px; width: 13px;"
+                                  name="Te_gustaria_recibir_informacion" id="control_COLUMN6_0"
+                                  label="Te gustaría recibir información de nuestras actividades" value="Yes" required>
+                              </td>
+                              <td class="defaultText" style="padding-right: 10px;">Sí</td>
+                              <td><input type="radio" style="margin: 0px 4px 0px 0px; width: 13px;"
+                                  name="Te_gustaria_recibir_informacion" id="control_COLUMN6_1"
+                                  label="Te gustaría recibir información de nuestras actividades" value="No">
+                              </td>
+                              <td class="defaultText" style="padding-right: 10px;">No</td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN9">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">Quieres
+                            participar en eventos del movimiento</div>
+                        </div>
+                        <div style="margin: 0px 0px 0px 3px; width: 50%;">
+                          <table cellspacing="0" cellpadding="0" border="0">
+                            <tr style="height: 20px">
+                              <td><input type="radio" style="margin: 0px 4px 0px 0px; width: 13px;"
+                                  name="Quieres_participar_en_eventos_del_movimiento" id="control_COLUMN9_0"
+                                  label="Quieres participar en eventos del movimiento" value="Yes" required>
+                              </td>
+                              <td class="defaultText" style="padding-right: 10px;">Sí</td>
+                              <td><input type="radio" style="margin: 0px 4px 0px 0px; width: 13px;"
+                                  name="Quieres_participar_en_eventos_del_movimiento" id="control_COLUMN9_1"
+                                  label="Quieres participar en eventos del movimiento" value="No"></td>
+                              <td class="defaultText" style="padding-right: 10px;">No</td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <ul class="list-inline pull-right">
+                  <li>
+                    <a class="btn btn-default prev-step">Back</a>
+                  </li>
+                  <li>
+                    <a class="btn btn-default cancel-stepper">Cancel Payment</a>
+                  </li>
+                  <li>
+                    <a class="btn btn-primary next-step">Submit Payment</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
+                <h3>4. All done!</h3>
+                <p>You have successfully completed all steps.</p>
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN7">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">Quieres
+                            ser parte de nuestra red de voluntarios</div>
+                        </div>
+                        <div style="margin: 0px 0px 0px 3px; width: 50%;">
+                          <table cellspacing="0" cellpadding="0" border="0">
+                            <tr style="height: 20px">
+                              <td><input type="radio" style="margin: 0px 4px 0px 0px; width: 13px;"
+                                  name="Quieres_ser_parte_de_nuestra_red_de_voluntarios" id="control_COLUMN7_0"
+                                  label="Quieres ser parte de nuestra red de voluntarios" value="Yes" required></td>
+                              <td class="defaultText" style="padding-right: 10px;">Sí</td>
+                              <td><input type="radio" style="margin: 0px 4px 0px 0px; width: 13px;"
+                                  name="Quieres_ser_parte_de_nuestra_red_de_voluntarios" id="control_COLUMN7_1"
+                                  label="Quieres ser parte de nuestra red de voluntarios" value="No"></td>
+                              <td class="defaultText" style="padding-right: 10px;">No</td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN8">
+                        <div style="width: 100%; overflow: hidden; ">
+                          <div class="fieldLabel"
+                            style="font-weight: 400; font-size: 1.6rem; width: 100%; margin: 0 0 0.5rem 0; ">Quieres
+                            ser parte del movimiento Compromiso Ciudadano</div>
+                        </div>
+                        <div style="margin: 0px 0px 0px 3px; width: 50%;">
+                          <table cellspacing="0" cellpadding="0" border="0">
+                            <tr style="height: 20px">
+                              <td><input type="radio" style="margin: 0px 4px 0px 0px; width: 13px;"
+                                  name="Quieres_ser_parte_del_movimiento_Compromiso_Ciudadano" id="control_COLUMN8_0"
+                                  label="Quieres ser parte del movimiento Compromiso Ciudadano" value="Yes" required>
+                              </td>
+                              <td class="defaultText" style="padding-right: 10px;">Sí</td>
+                              <td><input type="radio" style="margin: 0px 4px 0px 0px; width: 13px;"
+                                  name="Quieres_ser_parte_del_movimiento_Compromiso_Ciudadano" id="control_COLUMN8_1"
+                                  label="Quieres ser parte del movimiento Compromiso Ciudadano" value="No">
+                              </td>
+                              <td class="defaultText" style="padding-right: 10px;">No</td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;" id="container_COLUMN10">
+                        <div style="margin: 0px 0px 0px 3px;">
+                          <table cellspacing="0" cellpadding="0" border="0">
+                            <tr style="height: 20px">
+                              <td class="fieldLabel" style=""><label class="yesNoCheckboxLabel"><input type="checkbox"
+                                    name="Habeas Data" id="control_COLUMN10"
+                                    label="Doy mi consentimiento para que los datos suministrados en este formulario sean usados de acuerdo con la política de privacidad y de tratamiento de datos personales de la Corporación Compromiso Colombia Cívica, disponible aquí"
+                                    required>&nbsp;Doy mi consentimiento para que los datos suministrados en
+                                  este formulario sean usados de acuerdo con la política de privacidad y de
+                                  tratamiento de datos personales de la Corporación Compromiso Colombia
+                                  Cívica.</label></td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td id="errorMessageContainerId" class="formErrorMessages" style="display: none;"></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0px 10px 0px;">
+                      <div style="position: relative; overflow: hidden; width: 100%;">
+                        <table cellspacing="0" cellpadding="0" border="0">
+                          <tr>
+                            <td style="padding-right: 10px;"><input type="submit" class="defaultText buttonStyle"
+                                value="Enviar" id="formulario-enviado" onclick="submitForm();"></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </td>
+                  </tr>
+                  <input type="hidden" name="formSourceName" value="StandardForm">
+                  <!-- DO NOT REMOVE HIDDEN FIELD sp_exp --><input type="hidden" name="sp_exp" value="yes">
+                </table>
+              </div>
             </div>
-            <div class="tab-pane fade" role="tabpanel" id="stepper-step-2">
-              <h3 class="" "h2"="">2. Enter Payment Information</h3>
-              <p>This is step 2</p>
-              <ul class="list-inline pull-right">
-                <li>
-                  <a class="btn btn-default prev-step">Back</a>
-                </li>
-                <li>
-                  <a class="btn btn-primary next-step">Next</a>
-                </li>
-              </ul>
-            </div>
-            <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
-              <h3 class="hs">3. Review and Submit Payment</h3>
-              <p>This is step 3</p>
-              <ul class="list-inline pull-right">
-                <li>
-                  <a class="btn btn-default prev-step">Back</a>
-                </li>
-                <li>
-                  <a class="btn btn-default cancel-stepper">Cancel Payment</a>
-                </li>
-                <li>
-                  <a class="btn btn-primary next-step">Submit Payment</a>
-                </li>
-              </ul>
-            </div>
-            <div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
-              <h3>4. All done!</h3>
-              <p>You have successfully completed all steps.</p>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
+
+
       </div>
-
-
     </div>
   </div>
-</div>
-    <script src="./stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
 
   <script src="./jquery.min.js"></script>
-<script src="./bootstrap.min.js"></script>
-      <script id="rendered-js">
-/*jslint browser: true*/
-/*global $, jQuery, alert*/
-(function ($) {
-  'use strict';
+  <script src="./bootstrap.min.js"></script>
+  <script id="rendered-js">
+      /*jslint browser: true*/
+      /*global $, jQuery, alert*/
+      (function ($) {
+        'use strict';
 
-  $(function () {
+        $(function () {
 
-    $(document).ready(function () {
-      function triggerClick(elem) {
-        $(elem).click();
-      }
-      var $progressWizard = $('.stepper'),
-      $tab_active,
-      $tab_prev,
-      $tab_next,
-      $btn_prev = $progressWizard.find('.prev-step'),
-      $btn_next = $progressWizard.find('.next-step'),
-      $tab_toggle = $progressWizard.find('[data-toggle="tab"]'),
-      $tooltips = $progressWizard.find('[data-toggle="tab"][title]');
+          $(document).ready(function () {
+            function triggerClick(elem) {
+              $(elem).click();
+            }
+            var $progressWizard = $('.stepper'),
+              $tab_active,
+              $tab_prev,
+              $tab_next,
+              $btn_prev = $progressWizard.find('.prev-step'),
+              $btn_next = $progressWizard.find('.next-step'),
+              $tab_toggle = $progressWizard.find('[data-toggle="tab"]'),
+              $tooltips = $progressWizard.find('[data-toggle="tab"][title]');
 
-      // To do:
-      // Disable User select drop-down after first step.
-      // Add support for payment type switching.
+            // To do:
+            // Disable User select drop-down after first step.
+            // Add support for payment type switching.
 
-      //Initialize tooltips
-      $tooltips.tooltip();
+            //Initialize tooltips
+            $tooltips.tooltip();
 
-      //Wizard
-      $tab_toggle.on('show.bs.tab', function (e) {
-        var $target = $(e.target);
+            //Wizard
+            $tab_toggle.on('show.bs.tab', function (e) {
+              var $target = $(e.target);
 
-        if (!$target.parent().hasClass('active, disabled')) {
-          $target.parent().prev().addClass('completed');
-        }
-        if ($target.parent().hasClass('disabled')) {
-          return false;
-        }
-      });
+              if (!$target.parent().hasClass('active, disabled')) {
+                $target.parent().prev().addClass('completed');
+              }
+              if ($target.parent().hasClass('disabled')) {
+                return false;
+              }
+            });
 
-      // $tab_toggle.on('click', function(event) {
-      //     event.preventDefault();
-      //     event.stopPropagation();
-      //     return false;
-      // });
+            // $tab_toggle.on('click', function(event) {
+            //     event.preventDefault();
+            //     event.stopPropagation();
+            //     return false;
+            // });
 
-      $btn_next.on('click', function () {
-        $tab_active = $progressWizard.find('.active');
+            $btn_next.on('click', function () {
+              $tab_active = $progressWizard.find('.active');
 
-        $tab_active.next().removeClass('disabled');
+              $tab_active.next().removeClass('disabled');
 
-        $tab_next = $tab_active.next().find('a[data-toggle="tab"]');
-        triggerClick($tab_next);
+              $tab_next = $tab_active.next().find('a[data-toggle="tab"]');
+              triggerClick($tab_next);
 
-      });
-      $btn_prev.click(function () {
-        $tab_active = $progressWizard.find('.active');
-        $tab_prev = $tab_active.prev().find('a[data-toggle="tab"]');
-        triggerClick($tab_prev);
-      });
-    });
-  });
+            });
+            $btn_prev.click(function () {
+              $tab_active = $progressWizard.find('.active');
+              $tab_prev = $tab_active.prev().find('a[data-toggle="tab"]');
+              triggerClick($tab_prev);
+            });
+          });
 
-})(jQuery, this);
+          /* departamento change => */
+          $('#departamentoId').on('change', (e) => {
+            const departamentoSelected = $("#departamentoId option:selected").text();
+            console.log('departamentoSelected: ', departamentoSelected)
+
+            /* get departamento selected*/
+            const departamento = local_data.find((item, i) => item.departamento === departamentoSelected);
+
+            if (departamento) {/* load cities */
+              let { ciudades } = departamento
+              let dataMunicipios = '<option value="" SELECTED>Selecciona uno</option>'
+              Object.keys(ciudades).forEach((i) => {
+                dataMunicipios += `<option value="${ciudades[i]}" SELECTED>${ciudades[i]}</option>`
+              })
+              $('#municipioId').html(dataMunicipios)
+            } else {
+              console.log('Debes seleccionar un departamento', departamento)
+              $('#municipioId').html('<option value="" SELECTED>Selecciona uno</option>')
+            }
+
+
+          })
+        });
+
+      })(jQuery, this);
 //# sourceURL=pen.js
-    </script>
-
-  
+  </script>
 
 
 
 
- 
-</body></html>
+
+
+
+</body>
+
+</html>
