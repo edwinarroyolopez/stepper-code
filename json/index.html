@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./departamentos.js"></script>
+    <script type="text/javascript" src="./municipios.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        function capitalizarPalabras(val) {
+            return val.toLowerCase()
+                .trim()
+                .split(' ')
+                .map(v => v[0].toUpperCase() + v.substr(1))
+                .join(' ');
+        }
+
+        console.log('municipios: ', municipios)
+        console.log('departamentos: ', departamentos)
+
+        let colombiaFull = []
+        Object.keys(departamentos).forEach((c) => {
+            let departamentoSelected = departamentos[c]
+            document.write(`<label value="${departamentoSelected}">${departamentoSelected}</label><br/>`);
+
+            let departamentoFull = {}
+            let cities = []
+            Object.keys(municipios).forEach((i) => {
+                let municipioSelected = municipios[i]
+                let municipioDepartamentoSelected = municipioSelected.Departamento
+                console.log(`departamentoSelected: ${departamentoSelected.toLowerCase()} municipioDepartamentoSelected: ${municipioDepartamentoSelected ? municipioDepartamentoSelected.toLowerCase() : municipioDepartamentoSelected}`)
+
+                // departamentoSelected =
+                municipioDepartamentoSelected = municipioDepartamentoSelected ? municipioDepartamentoSelected.toLowerCase() : municipioDepartamentoSelected//municipioDepartamentoSelected.toLowerCase()
+
+                if (departamentoSelected.toLowerCase() === municipioDepartamentoSelected) {
+                    /* construir json */
+                    // municipioSelected.Departamento = null
+                    delete municipioSelected.Departamento;
+                    municipioSelected.Municipio = capitalizarPalabras(municipioSelected.Municipio)
+                    cities.push(municipioSelected)
+                }
+            })
+
+            departamentoFull.departamento = departamentoSelected
+            departamentoFull.cities = cities
+
+
+            colombiaFull.push(departamentoFull)
+        })
+        console.log('colombiaFull: ', colombiaFull)
+        let data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(colombiaFull));
+
+        var node = document.createElement("a");
+        node.href = 'data:' + data + ''
+        node.download = 'data.json'
+        node.textContent = 'descargar json'
+        //var textnode = document.createTextNode("download");         // Create a text node
+        //node.appendChild(textnode);                              // Append the text to <li>
+        //   document.getElementById("myList").appendChild(node);
+
+        document.getElementById('container').appendChild(node)
+
+
+    </script>
+
+</body>
+
+</html>
