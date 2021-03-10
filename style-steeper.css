@@ -61,7 +61,7 @@
 }
 .stepper .tab-pane {
   position: relative;
-  /* padding-top: 50px; */
+  padding-top: 0px !important; 
 }
 .stepper .round-tab {
   width: 25px;

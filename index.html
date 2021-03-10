@@ -18,13 +18,15 @@
   #agreePoliticas:hover {
     color: #009;
   }
-  #showError{
+
+  #showError {
     color: #900;
-    font-size: 1.2em;
+    /* font-size: 1.2em; */
     text-align: center;
     visibility: hidden;
   }
-  .error-form{
+
+  .error-form {
     visibility: visible !important;
   }
 </style>
@@ -8656,12 +8658,13 @@
                           padding: 1.5rem 1.8rem;
                           color: #818a91;
                         " required>
-                        <option value="" selected>Selecciona uno</option>
+                        <option value="">Selecciona uno</option>
                         <script>
                           Object.keys(countries).forEach((c) => {
                             let item = countries[c];
+
                             document.write(
-                              `<option value="${item}">${item}</option>`
+                              `<option value="${item}" ${item === 'Colombia' ? 'selected' : null}>${item}</option>`
                             );
                           });
                         </script>
@@ -8844,7 +8847,7 @@
 
 <!-- <script src="./jquery.min.js"></script>
   <script src="./bootstrap.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script id="rendered-js">
   /*jslint browser: true*/
@@ -8877,7 +8880,7 @@
       {
         step: "3",
         fields: [
-          { description: "live_incolombia", fieldName: "live_incolombia", type: "text", },
+          { description: "live_incolombia", fieldName: "live_incolombia", type: "radio", },
           { description: "departamento", fieldName: "control_COLUMN15", type: "text", },
           { description: "municipio", fieldName: "control_COLUMN16", type: "text", },
           { description: "pais", fieldName: "control_COLUMN14", type: "text", },
@@ -8886,9 +8889,9 @@
       {
         step: "4",
         fields: [
-          { description: "birthday", fieldName: "control_COLUMN12", },
-          { description: "genero", fieldName: "control_COLUMN11", },
-          { description: "cedula", fieldName: "control_COLUMN5", },
+          { description: "birthday", fieldName: "control_COLUMN12", type:"text"},
+          { description: "genero", fieldName: "control_COLUMN11", type:"text"},
+          { description: "cedula", fieldName: "control_COLUMN5", type:"text"},
         ],
       },
     ];
@@ -8938,10 +8941,10 @@
 
           let isValid = validateCurrentFields($tab_active_number);
 
-          if(!isValid){
+          if (!isValid) {
             $('#showError').addClass('error-form')
             return
-          }else{
+          } else {
             $('#showError').removeClass('error-form')
           }
 
@@ -9010,6 +9013,18 @@
 
       $("#formulario-enviado").click(function (e) {
         console.log("enviando...");
+
+        let isValid = validateCurrentFields('4')
+
+        if (!isValid) {
+          $('#showError').addClass('error-form')
+          e.preventDefault();
+          return
+        } else {
+          $('#showError').removeClass('error-form')
+        }
+
+
         $("#myForm").submit();
         e.preventDefault();
 
@@ -9022,33 +9037,73 @@
         let { fields } = formFields[currentTab - 1]
         let isValid = true
 
-        Object.keys(fields).forEach((i, k) => {
-          let field = fields[i]
-          let fieldName = field.fieldName
-          let value = '' 
+        if (currentTab === '3') {/* exceptions */
+          isValid = validateStepThree()
+        } else {/* others steps */
 
-          switch (field.type) {
-            case 'text':
-              value = $(`#${fieldName}`).val()
-              break;
-            case 'radio':
-              value = $(`input[name='${fieldName}']:checked`).val()
-              break;
-            case 'check':
-              value = $(`#${fieldName}`).is(":checked")
-              break;
-            default:
-              break;
-          }
 
-          console.log(fieldName, ' : ', value)
-          if(value==='' || !value){
-            console.log('Error with validation...', fieldName)
-            isValid = false
-          }
-          
-        });
+          Object.keys(fields).forEach((i, k) => {
+            let field = fields[i]
+            let fieldName = field.fieldName
+            let value = ''
+
+            switch (field.type) {
+              case 'text':
+                value = $(`#${fieldName}`).val()
+                break;
+              case 'radio':
+                value = $(`input[name='${fieldName}']:checked`).val()
+                break;
+              case 'check':
+                value = $(`#${fieldName}`).is(":checked")
+                break;
+              default:
+                break;
+            }
+
+            console.log(fieldName, ' : ', value)
+            if (value === '' || !value) {
+              isValid = false
+              console.log('Error with validation...', fieldName, ' desc: ', field.description)
+            }
+
+            /* exception - birthday - step four */
+            if(field.description==="birthday"){
+              if(value==='mm/dd/yyyy'){/* without birthday */
+                isValid = false
+                console.log('Error with validation...', fieldName, ' desc: ', field.description)
+              }
+            }
+
+
+
+          });
+        }
+
         return isValid
+      }
+
+      function validateStepThree() {
+        let { fields } = formFields[3 - 1]
+        let live_incolombia = $(`input[name='live_incolombia']:checked`).val()
+        let isValid = true
+
+        if (live_incolombia === 'Yes') {/* */
+          let departamento = $(`#control_COLUMN15`).val()
+          let municipio = $(`#control_COLUMN16`).val()
+          if (departamento === '' || municipio === '') {
+            isValid = false
+            console.log('Error with validation...', departamento, municipio)
+          }
+        } else {/* live out Colombia */
+          let pais = $(`#control_COLUMN14`).val()
+          if (pais === '') {
+            isValid = false
+            console.log('Error with validation...', pais)
+          }
+        }
+        return isValid
+
       }
     });
   })(jQuery, this);
